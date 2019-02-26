@@ -1,0 +1,14 @@
+{
+    "name": "user52/console",
+    "require": {
+		"symfony/console": "2.6.7"
+	},
+	"autoload": {
+		"classmap": [
+			"Commands"
+		],
+		"files\\": [
+			"/GreetCommand.php"
+		]
+	}
+}
