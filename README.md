@@ -1,2 +1,3 @@
-# php-custom-console-commands
-Custom Console Commands With PHP
+# Custom Console Commands With PHP
+
+$ php nurullah app:class TestClass
