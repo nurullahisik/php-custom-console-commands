@@ -41,7 +41,7 @@ class GreetCommand extends Command
         $name = $input->getArgument($this->commandArgumentName);
 
         if ($name) {
-            $text = 'Hello '.$name;
+            $text = 'Create Commands/'.$name;
         } else {
             $text = 'Hello';
         }
