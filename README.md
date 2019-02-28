@@ -1,3 +1,9 @@
 # Custom Console Commands With PHP
 
-$ php nurullah app:class TestClass
+Command line Ýnterface ( Example : Laravel Artisan )
+
+```
+$ php nurullah app:controller TestController
+```
+
+
