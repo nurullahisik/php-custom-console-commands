@@ -6,9 +6,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GreetCommand extends Command
+class CreateController extends Command
 {
-    protected $commandName = 'app:class';
+    protected $commandName = 'app:controller';
     protected $commandDescription = "Greets Someone";
 
     protected $commandArgumentName = "name";
@@ -40,19 +40,22 @@ class GreetCommand extends Command
     {
         $name = $input->getArgument($this->commandArgumentName);
 
-        if ($name) {
-            $text = 'Create Commands/'.$name;
+        $content = file_get_contents("Commands/files/Controller.php");
+        $content = str_replace("class Controller", "class $name", $content);
+
+		$file = fopen("app/controllers/$name.php", "w+");
+		$result = fwrite($file, $content);
+		fclose($file);
+
+        if ($result) {
+            $text = "Created $name";
         } else {
-            $text = 'Hello';
+            $text = "Error";
         }
 
         if ($input->getOption($this->commandOptionName)) {
             $text = strtoupper($text);
         }
-		
-		$file = fopen("Commands/$name.php", "w+");
-		fwrite($file, file_get_contents("greet.php"));
-		fclose($file);
 
         $output->writeln($text);
     }

@@ -4,11 +4,10 @@
 		"symfony/console": "2.6.7"
 	},
 	"autoload": {
-		"classmap": [
-			"Commands"
-		],
-		"files\\": [
-			"/GreetCommand.php"
-		]
+		"psr-4": {
+			"Nurullah\\Commands\\": "Commands/",
+			"Http\\Controllers\\": "app/controllers/",
+			"Http\\Models\\": "app/models/"
+		}
 	}
 }
